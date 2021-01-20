@@ -1,6 +1,6 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div class="article">
+    <span>記事コード:{{ $route.params.aid }}</span>
     <button v-on:click="onclick">トップへ</button>
   </div>
 </template>
@@ -10,7 +10,7 @@
 export default {
   methods: {
     onclick() {
-      this.$router.push('/');
+      this.$router.push("/");
     },
   },
 };
