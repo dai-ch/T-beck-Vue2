@@ -1,8 +1,11 @@
+
 <template>
-  <div class="customerInfo">
-    <div id="container">
+  <div id="customerInfo">
+    <div class="container">
       <div class="form__title">
-        <p class="text-l">お客様の情報を入力してください</p>
+        <p class="text-l">
+          <i class="fas fa-address-card"></i>お客様の情報を入力してください
+        </p>
         <span class="form__title__step">STEP1</span>
       </div>
       <form action="">
@@ -40,12 +43,35 @@
       </form>
     </div>
   </div>
-  <button class="next__btn" v-on:click="onclick">次へ進む</button>
+  <button class="next__btn" v-on:click="onclick">
+    次へ進む<i class="fas fa-angle-right"></i>
+  </button>
+
+  <!-- ddddddddddddddddddddddddddddddddddddddd -->
+  <div id="demo">
+    <button v-on:click="show = !show">Toggle</button>
+    <transition name="fade">
+      <p v-if="show">hello</p>
+    </transition>
+  </div>
+  <!-- dddddddddddddddddddddddddddddddddddddddddd -->
 </template>
 
 <script>
 // @ is an alias to /src
 //import HelloWorld from "@/components/HelloWorld.vue";
+
+new Vue({
+  el: "#demo",
+  data: {
+    show: true,
+  },
+  methods: {
+    onclick: function () {
+      this.show = !this.show;
+    },
+  },
+});
 
 export default {
   name: "Home",
@@ -101,76 +127,11 @@ export default {
 </script>
 
 <style scoped>
-body {
-  margin: 0 auto;
-  padding: 0;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
 }
-
-#container {
-  width: 90%;
-  max-width: 800px;
-  margin: 4rem auto 0;
-  border: 1px solid aqua;
-  border-radius: 5px;
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
-
-.form__title {
-  padding: 10px 0;
-  margin: 0;
-  text-align: center;
-  position: relative;
-  background-color: aquamarine;
-  border: 1px solid aqua;
-}
-
-.form__title__step {
-  position: absolute;
-  left: 0;
-  top: 0;
-  padding: 0 3px;
-  background-color: blue;
-  color: #fff;
-  border-radius: 5px;
-}
-
-.question__list {
-  text-align: left;
-  padding: 15px;
-}
-
-.question__item {
-  padding: 5px;
-}
-
-.question {
-  color: blue;
-}
-
-.radio {
-  display: inline-block;
-  margin-top: 10px;
-  margin-right: 10px;
-  padding: 10px 0;
-}
-
-.select {
-  margin-top: 15px;
-  padding: 5px;
-  border: 1px solid #bbb;
-}
-
-.container__item {
-  padding: 10px;
-}
-
-.next__btn {
-  color: #fff;
-  background-color: #36eec0;
-  padding: 5px 20px;
-  border-radius: 5px;
-  border: none;
-  margin: 20px auto 0;
-  display: inline-block;
-}
-
 </style>

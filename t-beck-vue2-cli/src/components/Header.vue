@@ -6,7 +6,7 @@
         <router-link to="/">ログイン</router-link> |
       </li>
       <li class="nav__list__item">
-        <router-link  to="/">新規会員登録</router-link>
+        <router-link to="/">新規会員登録</router-link>
       </li>
     </ul>
   </div>
@@ -41,5 +41,6 @@ p {
   position: relative;
   top: -10px;
   font-weight: 12px;
+  color: #888;
 }
 </style>
