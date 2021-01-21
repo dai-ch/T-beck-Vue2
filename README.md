@@ -1,4 +1,4 @@
-# t-beck-vue2-cli
+# vue-study2
 
 ## Project setup
 ```
