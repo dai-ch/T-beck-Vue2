@@ -1,13 +1,17 @@
 <template>
-  <link
-    rel="stylesheet"
-    href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
-    integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
-    crossorigin="anonymous"
-  />
-  <Header></Header>
-  <router-view/>
-  <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
+  <div id="app">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+      integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
+      crossorigin="anonymous"
+    />
+    <Header></Header>
+    <transition name="transiton__default">
+      <router-view />
+    </transition>
+    <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
+  </div>
 </template>
 
 <script>
@@ -15,7 +19,7 @@
 import Header from "./components/Header.vue";
 
 export default {
-  name: "App",
+  name: "app",
   components: {
     //HelloWorld,
     Header,
@@ -60,7 +64,7 @@ body {
 }
 
 .container {
-  width: 90%;
+  width: 80%;
   max-width: 800px;
   margin: 4rem auto 0;
   border: 1px solid rgb(137, 193, 245);
@@ -134,5 +138,28 @@ body {
 .fa,
 .fas {
   margin-left: 10px;
+}
+
+/* 表示アニメーション */
+.transiton__default-enter-from {
+  opacity: 0;
+}
+.transiton__default-enter-to {
+  opacity: 1;
+}
+/* アニメーションのスタイル */
+
+.transiton__default-enter-active {
+  transition: 0.5s ease-in;
+}
+.transiton__default-leave-active {
+  transition: 0;
+}
+/* 非表示アニメーション */
+.transiton__default-leave {
+  opacity: 0;
+}
+.transiton__default-leave-to {
+  opacity: 0;
 }
 </style>
