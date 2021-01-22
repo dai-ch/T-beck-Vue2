@@ -22,7 +22,7 @@
                     type="radio"
                     name="question1"
                     v-bind:value="question"
-                    v-on:click="q1"
+                    v-on:click="question1"
                   />{{ question }}
                 </div>
               </div>
@@ -40,7 +40,7 @@
                       type="radio"
                       name="question2"
                       v-bind:value="question"
-                      v-on:click="q2"
+                      v-on:click="question2"
                     />{{ question }}
                   </div>
                 </div>
@@ -78,9 +78,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
-//import HelloWorld from "@/components/HelloWorld.vue";
-
 export default {
   id: "interview",
   data() {
@@ -97,17 +94,15 @@ export default {
     onclickPre() {
       this.$router.push("/");
     },
-    q1() {
+    question1() {
       this.show2 = true;
     },
-    q2() {
+    question2() {
       this.show3 = true;
     },
   },
 };
 </script>
-
-
 
 <style scoped>
 /* enterの開始状態 */
@@ -125,20 +120,4 @@ export default {
 .show3-enter-to {
   opacity: 1;
 }
-
-/* leaveの開始状態 */
-/* .show2-leave {
-  opacity: 1;
-  background-color: yellow;
-  background-color: blue;
-} */
-
-/* leaveの終了状態 */
-/* .show2-leave-to {
-  opacity: 1;
-  background-color: green;
-  background-color: blue;
-} */
-
-
 </style>

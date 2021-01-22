@@ -28,9 +28,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
-//import HelloWorld from "@/components/HelloWorld.vue";
-
 export default {
   id: "consultation",
   components: {
@@ -51,7 +48,6 @@ export default {
   },
 };
 </script>
-
 <style scoped>
 textarea {
   width: 100%;

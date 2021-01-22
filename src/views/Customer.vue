@@ -64,17 +64,9 @@
     </transition>
   </div>
 </template>
-
-
 <script>
-// @ is an alias to /src
-//import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
   id: "customer",
-  components: {
-    //HelloWorld
-  },
   data() {
     return {
       selectedYear: "",
@@ -126,8 +118,6 @@ export default {
   },
 };
 </script>
-
-
 <style scoped>
 /* 表示アニメーション */
 .v-enter-from {
@@ -136,12 +126,10 @@ export default {
 .v-enter-to {
   opacity: 1;
 }
-
 /* アニメーションのスタイル */
 .v-enter-active {
   transition: 0.5s ease-in;
 }
-
 .v-leave-active {
   transition: 0;
 }

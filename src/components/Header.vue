@@ -3,10 +3,10 @@
     <h3 class="nav__title">Sample App</h3>
     <ul class="nav__list">
       <li class="nav__list__item">
-        <router-link to="/">ログイン</router-link> |
+        <router-link to="/" style="text-decoration: none; color: #888;">ログイン</router-link> |
       </li>
       <li class="nav__list__item">
-        <router-link to="/">新規会員登録</router-link>
+        <router-link to="/" style="text-decoration: none;color: #888;">新規会員登録</router-link>
       </li>
     </ul>
   </div>
@@ -44,6 +44,6 @@ p {
   position: relative;
   top: -10px;
   font-weight: 12px;
-  color: #888;
 }
+
 </style>

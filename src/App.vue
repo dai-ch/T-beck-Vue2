@@ -10,18 +10,15 @@
     <transition name="transiton__default">
       <router-view />
     </transition>
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
   </div>
 </template>
 
 <script>
-//import HelloWorld from "./components/HelloWorld.vue";
 import Header from "./components/Header.vue";
 
 export default {
   name: "app",
   components: {
-    //HelloWorld,
     Header,
   },
 };
