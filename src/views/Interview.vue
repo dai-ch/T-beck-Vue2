@@ -13,17 +13,8 @@
             <div class="question__list">
               <div class="question__item">
                 <p class="question">現在、生命保険に加入されていますか？</p>
-                <div
-                  class="radio"
-                  v-for="question in questions"
-                  v-bind:key="question"
-                >
-                  <input
-                    type="radio"
-                    name="question1"
-                    v-bind:value="question"
-                    v-on:click="question1"
-                  />{{ question }}
+                <div class="radio" v-for="question in questions" v-bind:key="question">
+                  <input type="radio" name="question1" v-bind:value="question" v-on:click="question1"/>{{ question }}
                 </div>
               </div>
               <transition name="show2">
@@ -55,21 +46,17 @@
                     v-for="question in questions"
                     v-bind:key="question"
                   >
-                    <input
-                      type="radio"
-                      name="question3"
-                      v-bind:value="question"
-                    />{{ question }}
+                    <input type="radio" name="question3" v-bind:value="question"/>{{ question }}
                   </div>
                 </div>
               </transition>
             </div>
           </form>
         </div>
-        <button class="next__btn" v-on:click="onclickPre">
+        <button class="next__btn" v-on:click="previousBtn">
           前へ戻る<i class="fas fa-angle-right"></i>
         </button>
-        <button class="next__btn" v-on:click="onclick">
+        <button class="next__btn" v-on:click="nextBtn">
           次へ進む<i class="fas fa-angle-right"></i>
         </button>
       </div>
@@ -88,10 +75,10 @@ export default {
     };
   },
   methods: {
-    onclick() {
+    nextBtn() {
       this.$router.push("/consultation");
     },
-    onclickPre() {
+    previousBtn() {
       this.$router.push("/");
     },
     question1() {

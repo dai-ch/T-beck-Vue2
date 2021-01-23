@@ -18,10 +18,10 @@
         </form>
       </div>
     </div>
-    <button class="next__btn" v-on:click="onclickPre">
+    <button class="next__btn" v-on:click="previousBtn">
       前へ戻る<i class="fas fa-angle-right"></i>
     </button>
-    <button class="next__btn" v-on:click="onclick">
+    <button class="next__btn" v-on:click="nextBtn">
       次へ進む<i class="fas fa-angle-right"></i>
     </button>
   </div>
@@ -31,7 +31,7 @@
 export default {
   id: "consultation",
   components: {
-    //HelloWorld,
+   
   },
   data() {
     return {
@@ -39,10 +39,10 @@ export default {
     };
   },
   methods: {
-    onclick() {
+    nextBtn() {
       //this.$router.push("/");
     },
-    onclickPre() {
+    previousBtn() {
       this.$router.push("/interview");
     },
   },
