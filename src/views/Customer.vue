@@ -2,7 +2,36 @@
   <div id="customer">
     <transition name="customer">
       <div class="customer__wrap">
-        <Definition></Definition>
+        <div class="container">
+          <div class="form__title">
+            <p class="text-l">
+              <i class="fas fa-address-card"></i>お客様の情報を入力してください
+            </p>
+            <span class="form__title__step">STEP1</span>
+          </div>
+          <form>
+            <div class="question__list">
+              <div class="question__item">
+                <p class="question">-性別-</p>
+                <div class="radio" v-for="gender in genders" v-bind:key="gender">
+                  <input type="radio" name="gender" v-bind:value="gender" />{{ gender }}
+                </div>
+              </div>
+              <div class="question__item">
+                <p class="question">-生年月日-</p>
+                <label
+                  ><select class="select" name="year" v-model="selectedYear">
+                    <option v-for="year in yearsList" v-bind:value="year" v-bind:key="year">{{ year }}</option></select>年</label>
+                <label><select class="select" name="month" v-model="selectedMonth">
+                    <option v-for="month in monthList" v-bind:value="month" v-bind:key="month">{{ month }}</option></select>月</label>
+                <select class="select" name="day" v-model="selectedDay">
+                  <option v-for="day in dayList" value="day" v-bind:key="day">{{ day }}</option>
+                </select>
+                <label>日</label>
+              </div>
+            </div>
+          </form>
+        </div>
         <button class="next__btn" v-on:click="nextBtn">
           次へ進む<i class="fas fa-angle-right"></i>
         </button>
@@ -10,20 +39,9 @@
     </transition>
   </div>
 </template>
-<script>
-import Definition from "../components/Definition.vue";
 
-export default {
-  id: "customer",
-  components: {
-    Definition,
-  },
-  methods: {
-    nextBtn() {
-      this.$router.push("/interview");
-    },
-  },
-};
+<script src="../components/Definition.js">
+//JSファイルには生年月日の計算式＋ボタン機能を追加
 </script>
 <style scoped>
 /* 表示アニメーション */

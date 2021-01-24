@@ -31,7 +31,6 @@
 export default {
   id: "consultation",
   components: {
-   
   },
   data() {
     return {
