@@ -65,6 +65,7 @@
 </template>
 
 <script>
+import DefinitionJs from "../components/Definition.js";
 export default {
   id: "interview",
   data() {
@@ -73,6 +74,9 @@ export default {
       show2: false,
       show3: false,
     };
+  },
+  components: {
+    DefinitionJs,
   },
   methods: {
     nextBtn() {
