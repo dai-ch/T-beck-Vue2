@@ -13,19 +13,44 @@
             <div class="question__list">
               <div class="question__item">
                 <p class="question">-性別-</p>
-                <div class="radio" v-for="gender in genders" v-bind:key="gender">
-                  <input type="radio" name="gender" v-bind:value="gender" />{{ gender }}
+                <div
+                  class="radio"
+                  v-for="gender in genders"
+                  v-bind:key="gender"
+                >
+                  <input type="radio" name="gender" v-bind:value="gender" />{{
+                    gender
+                  }}
                 </div>
               </div>
               <div class="question__item">
                 <p class="question">-生年月日-</p>
                 <label
-                  ><select class="select" name="year" v-model="selectedYear">
-                    <option v-for="year in yearsList" v-bind:value="year" v-bind:key="year">{{ year }}</option></select>年</label>
-                <label><select class="select" name="month" v-model="selectedMonth">
-                    <option v-for="month in monthList" v-bind:value="month" v-bind:key="month">{{ month }}</option></select>月</label>
-                <select class="select" name="day" v-model="selectedDay">
-                  <option v-for="day in dayList" value="day" v-bind:key="day">{{ day }}</option>
+                  ><select class="select" name="year" v-model="year" v-on:change="modify">
+                    <option
+                      v-for="year in getYears()"
+                      v-bind:value="year"
+                      v-bind:key="year"
+                    >
+                      {{ year }}
+                    </option></select
+                  >年</label
+                >
+                <label
+                  ><select class="select" name="month" v-model="month" v-on:change="modify">
+                    <option
+                      v-for="month in months"
+                      v-bind:value="month"
+                      v-bind:key="month"
+                    >
+                      {{ month }}
+                    </option></select
+                  >月</label
+                >
+                <select class="select" name="date" v-model="date">
+                  <option v-for="date in getDates()" name="date" v-bind:key="date">
+                    {{ date }}
+                  </option>
                 </select>
                 <label>日</label>
               </div>
