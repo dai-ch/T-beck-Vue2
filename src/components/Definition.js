@@ -36,9 +36,11 @@ export default {
     //選択された月の最大の日数を計算
     getDates: function (year, month) {
       //指定した年月に対する日数を取得
-      const maxDate = moment(year, month).daysInMonth();
+      const formattedYearAndMonth = `${year}-${month}`;
+      const maxDate = moment(formattedYearAndMonth, "YYYY-MM").daysInMonth()
+      //const maxDate = moment(year, month).daysInMonth();
       const days = [];
-      for (let i = 1; i <= maxDate; i++){
+      for (let i = 1; i <= maxDate; i++) {
         days.push(i);
       }
       return days;
@@ -49,21 +51,13 @@ export default {
       if (!moment([this.year, this.month - 1, this.date]).isValid()) {
         this.date = this.getFinalDate(this.year, this.month);
       }
-   },
+    },
     getFinalDate: function (year, month) {
       // 月末日を取得
       return moment([year, month - 1]).endOf('month');
     },
     nextBtn() {
       this.$router.push("/interview");
-    },
-    //テスト用のメソッド
-    dayList: function () {
-      const days = [];
-      for (let i = 1; i <= 31; i++) {
-        days.push(i);
-      }
-      return days;
     },
   }
 };
