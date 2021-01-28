@@ -16,13 +16,13 @@ export default createStore({
   getters: {
     booksCount(state) {
       //書籍件数を取得
-      return state.books.length
+      return state.books.length;
     },
     getBooksByPrice(state) {
       //指定された価格price未満の書籍情報を取得
-      return price => {
-        return state.books.filter(book => book.price < price)
-      }
+      return (price) => {
+        return state.books.filter((book) => book.price < price);
+      };
     },
     BooksCount3000(state, getters) {
       return getters.getBooksByPrice(3000).length;
@@ -36,9 +36,6 @@ export default createStore({
     decrement(state) {
       state.count -= 1;
     },
-    addBook(state, payload) {
-      state.books.push(payload.book)
-    }
   },
   actions: {},
   modules: {},
