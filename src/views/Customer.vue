@@ -13,27 +13,62 @@
             <div class="question__list">
               <div class="question__item">
                 <p class="question">-性別-</p>
-                <div class="radio" v-for="gender in genders" v-bind:key="gender">
-                  <input type="radio" name="gender" v-bind:value="gender" />{{gender}}
+                <div
+                  class="radio"
+                  v-for="gender in genders"
+                  v-bind:key="gender"
+                >
+                  <input type="radio" name="gender" v-bind:value="gender" v-model="$store.state.gender" v-on:click="selectGender"/>{{
+                    gender
+                  }}
                 </div>
               </div>
               <div class="question__item">
                 <p class="question">-生年月日-</p>
                 <label>
-                  <select class="select" name="year" v-model="year" v-on:change="modify">
-                    <option v-for="year in getYears()" v-bind:value="year" v-bind:key="year"> {{ year }}
-                    </option>
-                  </select>年
+                  <select
+                    class="select"
+                    name="year"
+                    v-model="$store.state.year"
+                    v-on:change="modify"
+                  >
+                    <option
+                      v-for="year in getYears()"
+                      v-bind:value="year"
+                      v-bind:key="year"
+                      v-on:select="selectYear"
+                    >
+                      {{ year }}
+                    </option> </select
+                  >年
                 </label>
                 <label>
-                  <select class="select" name="month" v-model="month" v-on:change="modify">
-                    <option v-for="month in months" v-bind:value="month" v-bind:key="month"> {{ month }}</option>
-                    </select>月
+                  <select
+                    class="select"
+                    name="month"
+                    v-model="$store.state.month"
+                    v-on:change="modify"
+                    v-on:select="selectMonth"
+                  >
+                    <option
+                      v-for="month in months"
+                      v-bind:value="month"
+                      v-bind:key="month"
+                    >
+                      {{ month }}</option
+                    > </select
+                  >月
                 </label>
                 <label>
-                <select class="select" name="date" v-model="date">
-                  <option v-for="date in getDates(year, month)" name="date" v-bind:key="date">{{ date }}</option>
-                </select>日
+                  <select class="select" name="date" v-model="$store.state.date">
+                    <option
+                      v-for="date in getDates(year, month)"
+                      name="date"
+                      v-bind:key="date"
+                      v-on:select="selectDate"
+                      >{{ date }}</option
+                    > </select
+                  >日
                 </label>
               </div>
             </div>

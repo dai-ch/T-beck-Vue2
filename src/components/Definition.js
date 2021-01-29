@@ -13,7 +13,7 @@ export default {
   },
   methods: {
     //年号を選択
-    getYears: function () {
+    getYears: function() {
       const goBackYears = 110;
       const currentYears = moment().year();
       const finishYear = currentYears - goBackYears;
@@ -34,10 +34,10 @@ export default {
       return selectYears;
     },
     //選択された月の最大の日数を計算
-    getDates: function (year, month) {
+    getDates: function(year, month) {
       //指定した年月に対する日数を取得
       const formattedYearAndMonth = `${year}-${month}`;
-      const maxDate = moment(formattedYearAndMonth, "YYYY-MM").daysInMonth()
+      const maxDate = moment(formattedYearAndMonth, "YYYY-MM").daysInMonth();
       //const maxDate = moment(year, month).daysInMonth();
       const days = [];
       for (let i = 1; i <= maxDate; i++) {
@@ -45,19 +45,31 @@ export default {
       }
       return days;
     },
-    modify: function () {
+    modify: function() {
       // 年や月が変更されたとき、日が存在しなくなる場合があるので調整する。
       // 例: 2018-12-31 を選択していて月が 12 から 2 に変更された場合、日を 28 にする。
       if (!moment([this.year, this.month - 1, this.date]).isValid()) {
         this.date = this.getFinalDate(this.year, this.month);
       }
     },
-    getFinalDate: function (year, month) {
+    getFinalDate: function(year, month) {
       // 月末日を取得
-      return moment([year, month - 1]).endOf('month');
+      return moment([year, month - 1]).endOf("month");
     },
     nextBtn() {
       this.$router.push("/interview");
     },
-  }
+    selectGender() {
+      this.$store.commit("selectGender");
+    },
+    selectYear() {
+      this.$store.commit("selectYear");
+    },
+    selectMonth() {
+      this.$store.commit("selectMonth");
+    },
+    selectDate() {
+      this.$store.commit("selectDate");
+    },
+  },
 };

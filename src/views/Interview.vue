@@ -13,16 +13,21 @@
             <div class="question__list">
               <div class="question__item">
                 <p class="question">現在、生命保険に加入されていますか？</p>
-                <div class="radio" v-for="question in questions" v-bind:key="question">
-                  <input type="radio" name="question1" v-bind:value="question" v-on:click="question1"/>{{ question }}</div>
+                <div class="radio" v-for="question in questions" v-bind:key="question"
+                >
+                  <input type="radio" name="question1" v-bind:value="question" v-on:click="question1" v-model="$store.state.question1"
+                  />{{ question }}
+                </div>
               </div>
               <transition name="show2">
                 <div class="question__item" v-show="show2">
                   <p class="question">
                     現在入院中ですか。または、最近3ヶ月以内に医師の診察・検査の結果、入院・手術をすすめられたことはありますか？
                   </p>
-                  <div class="radio" v-for="question in questions" v-bind:key="question">
-                    <input type="radio" name="question2" v-bind:value="question" v-on:click="question2"/>{{ question }}
+                  <div class="radio" v-for="question in questions" v-bind:key="question"
+                  >
+                    <input type="radio" name="question2" v-bind:value="question" v-on:click="question2" v-model="$store.state.question2"
+                    />{{ question }}
                   </div>
                 </div>
               </transition>
@@ -31,8 +36,10 @@
                   <p class="question">
                     過去5年以内に、病気やけがで、手術をうけたまたは継続して7日以上の入院をしたことがありますか？
                   </p>
-                  <div class="radio" v-for="question in questions" v-bind:key="question">
-                    <input type="radio" name="question3" v-bind:value="question"/>{{ question }}
+                  <div class="radio" v-for="question in questions" v-bind:key="question"
+                  >
+                    <input type="radio" name="question3" v-bind:value="question" v-model="$store.state.question3"
+                    />{{ question }}
                   </div>
                 </div>
               </transition>
@@ -68,10 +75,15 @@ export default {
       this.$router.push("/");
     },
     question1() {
+      this.$store.commit("question1");
       this.show2 = true;
     },
     question2() {
+      this.$store.commit("question2");
       this.show3 = true;
+    },
+    question3() {
+      this.$store.commit("question3");
     },
   },
 };

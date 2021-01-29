@@ -12,7 +12,11 @@
           <div class="question__list">
             <div class="question__item">
               <p class="question">-ご相談内容-</p>
-              <textarea rows="16" />
+              <textarea
+                rows="16"
+                v-model="$store.state.consultationText"
+                v-on:keyup="enterConsultation"
+              />
             </div>
           </div>
         </form>
@@ -30,20 +34,24 @@
 <script>
 export default {
   id: "consultation",
-  components: {
-  },
+  components: {},
   data() {
     return {
-      questions: ["はい", "いいえ"],
+      consultationText: this.$store.state.consultationText,
     };
   },
   methods: {
     nextBtn() {
-      //this.$router.push("/");
+      this.$router.push("/confirmation");
     },
     previousBtn() {
       this.$router.push("/interview");
     },
+  },
+  enterConsultation() {
+    console.log("入力された");
+    //相談内容をindex.jsのmutationへ送信
+    this.$store.commit("enterConsultation");
   },
 };
 </script>

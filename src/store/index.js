@@ -1,7 +1,7 @@
 import { createStore } from "vuex";
 import { ADD_BOOK } from "./mutation-types";
-import MainModule from './main-store'
-import SubModule from './sub-store'
+import MainModule from "./main-store";
+import SubModule from "./sub-store";
 
 export default createStore({
   //データを更新するためのメソッド
@@ -16,6 +16,14 @@ export default createStore({
       },
     ],
     name: "",
+    consultationText: "",
+    gender: "",
+    year: "",
+    month: "",
+    date: "",
+    question1: "",
+    question2: "",
+    question3: "",
   },
   //引数は渡せるがセッターの設置不可
   getters: {
@@ -41,26 +49,49 @@ export default createStore({
     decrement(state) {
       state.count -= 1;
     },
-    // addBook(state, payload) {
-    //   state.books.push(payload.book);
-    // },
     updateName(state, name) {
       state.name = name;
     },
     [ADD_BOOK](state, payload) {
       state.books.push(payload.book);
     },
+    //送信されたデータをstateメソッドに登録する
+    enterConsultation(state, consultationText) {
+      console.log("uketotta");
+      state.consultationText = consultationText;
+    },
+    question1(state, question1) {
+      state.question1 = question1;
+    },
+    question2(state, question2) {
+      state.question2 = question2;
+    },
+    question3(state, question3) {
+      state.question3 = question3;
+    },
+    selectGender(state, gender) {
+      state.gender = gender;
+    },
+    selectYear(state, year) {
+      state.year = year;
+    },
+    selectMonth(state, month) {
+      state.month = month;
+    },
+    selectDate(state, date) {
+      state.date = date;
+    },
   },
   actions: {
     addAsync(context, payload) {
-      //5000m秒後にミューテーション（ADD_BOOK）をコミット
+      //10m秒後にミューテーション（ADD_BOOK）をコミット
       setTimeout(function() {
         context.commit(ADD_BOOK, payload);
-      }, 5000);
+      }, 10);
     },
   },
   modules: {
     main: MainModule,
-    sub:SubModule
+    sub: SubModule,
   },
 });
