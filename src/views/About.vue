@@ -26,12 +26,22 @@
       <input type="submit" value="登録" />
     </form>
     <hr />
+    <form>
+      <label for="name">氏名：</label>
+      <input type="text" id="name" v-model="$store.state.name" />
+    </form>
+    <hr/>
+  メイン：{{mainUpdated}}<br/>
+  サブ：{{subUpdated}}<br/>
+  <input type="button" value="更新" v-on:click="setUpdated">
   </div>
 </template>
 
 <script>
 //import { mapState } from "vuex";
 import { mapGetters } from "vuex";
+import { mapMutations } from "vuex";
+//import { mapActions } from "vuex";
 
 export default {
   el: "#about",
@@ -45,7 +55,24 @@ export default {
     };
   },
   //値を取得
-  computed: mapGetters(["booksCount","getBooksByPrice"]),
+  computed: {
+    ...mapGetters(["booksCount", "getBooksByPrice"]),
+    name: {
+      get() {
+        return this.$store.state.name;
+      },
+      set(value) {
+        this.$store.commit("updateName", value);
+      },
+    },
+    //mainモジュールの時刻更新
+    mainUpdated(){
+      return this.$store.state.main.updated
+    },
+    subUpdated(){
+      return this.$store.state.sub.updated
+    }
+  },
   methods: {
     //インクリメント
     onincremnt() {
@@ -55,15 +82,30 @@ export default {
     ondecrement() {
       this.$store.commit("decrement");
     },
+    //...mapActions(["addAsync"]),
     onclick() {
-      this.$store.commit("addBook",{
+      // this.$store.commit("addBook", {
+      //   book: {
+      //     isbn: this.isbn,
+      //     title: this.title,
+      //     price: this.price,
+      //   },
+      // });
+      //アクションの呼び出し＝dispatchする
+      this.$store.dispatch("addAsync", {
         book: {
           isbn: this.isbn,
           title: this.title,
           price: this.price,
         },
       });
+
     },
+    ...mapMutations(["plus", "minus"]),
+    setUpdated(){
+      this.$store.commit('main/setUpdated'),
+      this.$store.commit('sub/setUpdated')
+    }
   },
 };
 </script>
