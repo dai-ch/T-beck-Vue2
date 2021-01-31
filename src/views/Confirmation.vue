@@ -16,9 +16,7 @@
           <div class="question__item">
             <p class="question">-生年月日-</p>
             <p>
-              {{ getSelectYear.substr(0, 4) }}年{{ getSelectMonth }}月{{
-                getSelectDate
-              }}日
+              {{ getSelectYear.substr(0, 4) }}年{{ getSelectMonth }}月{{ getSelectDate }}日
             </p>
           </div>
           <div class="question__item">
@@ -56,11 +54,11 @@
 
 <script>
 export default {
-  id: "confirmation",
+  id: 'confirmation',
   components: {},
   data() {
     return {
-      questions: ["はい", "いいえ"],
+      questions: ['はい', 'いいえ'],
     };
   },
   computed: {
@@ -90,14 +88,13 @@ export default {
     getQuestion3() {
       return this.$store.getters.getQuestion3;
     },
-
   },
   methods: {
     nextBtn() {
       //this.$router.push("/");
     },
     previousBtn() {
-      this.$router.push("/consultation");
+      this.$router.push('/consultation');
     },
   },
 };

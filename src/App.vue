@@ -13,10 +13,10 @@
   </div>
 </template>
 <script>
-import Header from "./components/Header.vue";
+import Header from './components/Header.vue';
 
 export default {
-  name: "app",
+  name: 'app',
   components: {
     Header,
   },
@@ -106,8 +106,8 @@ body {
   padding: 10px 0;
 }
 
-.radioBtn{
-  margin-top:10px;
+.radioBtn {
+  margin-top: 10px;
 }
 
 .select {

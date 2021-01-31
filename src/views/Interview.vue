@@ -13,21 +13,9 @@
             <div class="question__list">
               <div class="question__item">
                 <p class="question">現在、生命保険に加入されていますか？</p>
-                <input
-                  class="radioBtn"
-                  type="radio"
-                  name="question1"
-                  value="はい"
-                  v-model="$store.state.question1"
-                  v-on:click="question1"
+                <input class="radioBtn" type="radio" name="question1" value="はい" v-model="$store.state.question1" v-on:click="question1"
                 />はい
-                <input
-                  class="radioBtn"
-                  type="radio"
-                  name="question1"
-                  value="いいえ"
-                  v-model="$store.state.question1"
-                  v-on:click="question1"
+                <input class="radioBtn" type="radio" name="question1" value="いいえ" v-model="$store.state.question1" v-on:click="question1"
                 />いいえ
               </div>
               <transition name="show2">
@@ -35,21 +23,9 @@
                   <p class="question">
                     現在入院中ですか。または、最近3ヶ月以内に医師の診察・検査の結果、入院・手術をすすめられたことはありますか？
                   </p>
-                  <input
-                    class="radioBtn"
-                    type="radio"
-                    name="question2"
-                    value="はい"
-                    v-model="$store.state.question2"
-                    v-on:click="question2"
+                  <input class="radioBtn" type="radio" name="question2" value="はい" v-model="$store.state.question2" v-on:click="question2"
                   />はい
-                  <input
-                    class="radioBtn"
-                    type="radio"
-                    name="question2"
-                    value="いいえ"
-                    v-model="$store.state.question2"
-                    v-on:click="question2"
+                  <input class="radioBtn" type="radio" name="question2" value="いいえ" v-model="$store.state.question2" v-on:click="question2"
                   />いいえ
                 </div>
               </transition>
@@ -58,19 +34,9 @@
                   <p class="question">
                     過去5年以内に、病気やけがで、手術をうけたまたは継続して7日以上の入院をしたことがありますか？
                   </p>
-                  <input
-                    class="radioBtn"
-                    type="radio"
-                    name="question3"
-                    value="はい"
-                    v-model="$store.state.question3"
+                  <input class="radioBtn" type="radio" name="question3" value="はい" v-model="$store.state.question3"
                   />はい
-                  <input
-                    class="radioBtn"
-                    type="radio"
-                    name="question3"
-                    value="いいえ"
-                    v-model="$store.state.question3"
+                  <input class="radioBtn" type="radio" name="question3" value="いいえ" v-model="$store.state.question3"
                   />いいえ
                 </div>
               </transition>
