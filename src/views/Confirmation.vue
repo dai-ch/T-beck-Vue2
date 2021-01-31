@@ -66,29 +66,31 @@ export default {
   computed: {
     //index.jsのstateメソッドから値を取得
     getEnterConsultation() {
-      return this.$store.state.consultationText;
-    },
-    getQuestion1() {
-      return this.$store.state.question1;
-    },
-    getQuestion2() {
-      return this.$store.state.question2;
-    },
-    getQuestion3() {
-      return this.$store.state.question3;
+      return this.$store.getters.consultationText;
     },
     getGender() {
-      return this.$store.state.gender;
+      console.log(this.$store.getters.getGender);
+      return this.$store.getters.getGender;
     },
     getSelectYear() {
-      return this.$store.state.year;
+      return this.$store.getters.getSelectYear;
     },
     getSelectMonth() {
-      return this.$store.state.month;
+      return this.$store.getters.getSelectMonth;
     },
     getSelectDate() {
-      return this.$store.state.date;
+      return this.$store.getters.getSelectDate;
     },
+    getQuestion1() {
+      return this.$store.getters.getQuestion1;
+    },
+    getQuestion2() {
+      return this.$store.getters.getQuestion2;
+    },
+    getQuestion3() {
+      return this.$store.getters.getQuestion3;
+    },
+
   },
   methods: {
     nextBtn() {

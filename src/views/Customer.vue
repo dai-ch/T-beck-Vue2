@@ -13,15 +13,20 @@
             <div class="question__list">
               <div class="question__item">
                 <p class="question">-性別-</p>
-                <div
+                <input
+                  type="radio"
                   class="radio"
-                  v-for="gender in genders"
-                  v-bind:key="gender"
-                >
-                  <input type="radio" name="gender" v-bind:value="gender" v-model="$store.state.gender" v-on:click="selectGender"/>{{
-                    gender
-                  }}
-                </div>
+                  name="gender"
+                  value="男性"
+                  v-model="$store.state.gender"
+                />男性
+                <input
+                  type="radio"
+                  class="radio"
+                  name="gender"
+                  value="女性"
+                  v-model="$store.state.gender"
+                />女性
               </div>
               <div class="question__item">
                 <p class="question">-生年月日-</p>
@@ -34,7 +39,6 @@
                   >
                     <option
                       v-for="year in getYears()"
-                      v-bind:value="year"
                       v-bind:key="year"
                       v-on:select="selectYear"
                     >
@@ -52,7 +56,6 @@
                   >
                     <option
                       v-for="month in months"
-                      v-bind:value="month"
                       v-bind:key="month"
                     >
                       {{ month }}</option
@@ -60,7 +63,11 @@
                   >月
                 </label>
                 <label>
-                  <select class="select" name="date" v-model="$store.state.date">
+                  <select
+                    class="select"
+                    name="date"
+                    v-model="$store.state.date"
+                  >
                     <option
                       v-for="date in getDates(year, month)"
                       name="date"

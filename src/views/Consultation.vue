@@ -36,9 +36,6 @@ export default {
   id: "consultation",
   components: {},
   data() {
-    return {
-      consultationText: this.$store.state.consultationText,
-    };
   },
   methods: {
     nextBtn() {

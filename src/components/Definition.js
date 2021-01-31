@@ -1,10 +1,9 @@
-import moment from "moment";
+import moment from 'moment';
 
 export default {
-  id: "customer",
+  id: 'customer',
   data() {
     return {
-      genders: ["男性", "女性"],
       months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
       year: moment().year(),
       month: moment().month() + 1,
@@ -20,15 +19,15 @@ export default {
       const selectYears = [];
       for (let i = currentYears; i > finishYear; i--) {
         if (i > 2018) {
-          selectYears.push(i + "年 (令和" + (i - 2018) + ")");
+          selectYears.push(i + '年 (令和' + (i - 2018) + ')');
         } else if (i > 1988) {
-          selectYears.push(i + "年 (平成" + (i - 1988) + ")");
+          selectYears.push(i + '年 (平成' + (i - 1988) + ')');
         } else if (i > 1925) {
-          selectYears.push(i + "年 (昭和" + (i - 1925) + ")");
+          selectYears.push(i + '年 (昭和' + (i - 1925) + ')');
         } else if (i > 1911) {
-          selectYears.push(i + "年 (大正" + (i - 1911) + ")");
+          selectYears.push(i + '年 (大正' + (i - 1911) + ')');
         } else if (i > 1868) {
-          selectYears.push(i + "年 (明治" + (i - 1868) + ")");
+          selectYears.push(i + '年 (明治' + (i - 1868) + ')');
         }
       }
       return selectYears;
@@ -37,7 +36,7 @@ export default {
     getDates: function(year, month) {
       //指定した年月に対する日数を取得
       const formattedYearAndMonth = `${year}-${month}`;
-      const maxDate = moment(formattedYearAndMonth, "YYYY-MM").daysInMonth();
+      const maxDate = moment(formattedYearAndMonth, 'YYYY-MM').daysInMonth();
       //const maxDate = moment(year, month).daysInMonth();
       const days = [];
       for (let i = 1; i <= maxDate; i++) {
@@ -54,22 +53,19 @@ export default {
     },
     getFinalDate: function(year, month) {
       // 月末日を取得
-      return moment([year, month - 1]).endOf("month");
+      return moment([year, month - 1]).endOf('month');
     },
     nextBtn() {
-      this.$router.push("/interview");
-    },
-    selectGender() {
-      this.$store.commit("selectGender");
+      this.$router.push('/interview');
     },
     selectYear() {
-      this.$store.commit("selectYear");
+      this.$store.commit('selectYear');
     },
     selectMonth() {
-      this.$store.commit("selectMonth");
+      this.$store.commit('selectMonth');
     },
     selectDate() {
-      this.$store.commit("selectDate");
+      this.$store.commit('selectDate');
     },
   },
 };

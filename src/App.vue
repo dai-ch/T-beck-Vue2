@@ -102,8 +102,12 @@ body {
 .radio {
   display: inline-block;
   margin-top: 10px;
-  margin-right: 10px;
+  margin-right: 5px;
   padding: 10px 0;
+}
+
+.radioBtn{
+  margin-top:10px;
 }
 
 .select {
