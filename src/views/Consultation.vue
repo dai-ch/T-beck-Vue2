@@ -30,7 +30,6 @@
     </button>
   </div>
 </template>
-
 <script>
 export default {
   id: 'consultation',
