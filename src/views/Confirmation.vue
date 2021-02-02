@@ -67,7 +67,6 @@ export default {
       return this.$store.getters.consultationText;
     },
     getGender() {
-      console.log(this.$store.getters.getGender);
       return this.$store.getters.getGender;
     },
     getSelectYear() {

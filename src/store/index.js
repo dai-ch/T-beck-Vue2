@@ -43,14 +43,29 @@ export default createStore({
   },
   //stateを専用のメソッドで更新。ステートを更新するメソッド
   mutations: {
-    selectYear(state, year) {
-      state.year = year;
+    selectGender(state, selectGender) {
+      state.gender = selectGender.select;
     },
-    selectMonth(state, month) {
-      state.month = month;
+    selectYear(state, selectedYear) {
+      state.year = selectedYear.year;
     },
-    selectDate(state, date) {
-      state.date = date;
+    selectMonth(state, selectedMonth) {
+      state.month = selectedMonth.month;
+    },
+    selectDate(state, selectDate) {
+      state.date = selectDate.date;
+    },
+    question1(state, interviewQuestion1) {
+      state.question1 = interviewQuestion1.question1;
+    },
+    question2(state, interviewQuestion2) {
+      state.question2 = interviewQuestion2.question2;
+    },
+    question3(state, interviewQuestion3) {
+      state.question3 = interviewQuestion3.question3;
+    },
+    enterConsultation(state, consultationText) {
+      state.consultationText = consultationText.text;
     },
   },
   actions: {},

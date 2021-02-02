@@ -4,6 +4,7 @@ export default {
   id: 'customer',
   data() {
     return {
+      gender: '',
       months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
       year: moment().year(),
       month: moment().month() + 1,
@@ -58,14 +59,19 @@ export default {
     nextBtn() {
       this.$router.push('/interview');
     },
-    selectYear() {
-      this.$store.commit('selectYear');
+    selectYear(event) {
+      this.$store.commit('selectYear', { year: event.target.value });
     },
-    selectMonth() {
-      this.$store.commit('selectMonth');
+    selectMonth(event) {
+
+      this.$store.commit('selectMonth', { month: event.target.value });
     },
-    selectDate() {
-      this.$store.commit('selectDate');
+    selectDate(event)
+    {
+      this.$store.commit('selectDate', { date: event.target.value });
+    },
+    selectGender(event) {
+      this.$store.commit('selectGender', { select: event.target.value });
     },
   },
 };

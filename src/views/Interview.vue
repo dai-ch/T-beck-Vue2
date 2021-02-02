@@ -13,9 +13,9 @@
             <div class="question__list">
               <div class="question__item">
                 <p class="question">現在、生命保険に加入されていますか？</p>
-                <input class="radioBtn" type="radio" name="question1" value="はい" v-model="$store.state.question1" v-on:click="question1"
+                <input class="radioBtn" type="radio" name="question1" value="はい" v-model="interviewQuestion1" v-on:click="question1"
                 />はい
-                <input class="radioBtn" type="radio" name="question1" value="いいえ" v-model="$store.state.question1" v-on:click="question1"
+                <input class="radioBtn" type="radio" name="question1" value="いいえ" v-model="interviewQuestion1" v-on:click="question1"
                 />いいえ
               </div>
               <transition name="show2">
@@ -23,9 +23,9 @@
                   <p class="question">
                     現在入院中ですか。または、最近3ヶ月以内に医師の診察・検査の結果、入院・手術をすすめられたことはありますか？
                   </p>
-                  <input class="radioBtn" type="radio" name="question2" value="はい" v-model="$store.state.question2" v-on:click="question2"
+                  <input class="radioBtn" type="radio" name="question2" value="はい" v-model="interviewQuestion2" v-on:click="question2"
                   />はい
-                  <input class="radioBtn" type="radio" name="question2" value="いいえ" v-model="$store.state.question2" v-on:click="question2"
+                  <input class="radioBtn" type="radio" name="question2" value="いいえ" v-model="interviewQuestion2" v-on:click="question2"
                   />いいえ
                 </div>
               </transition>
@@ -34,9 +34,9 @@
                   <p class="question">
                     過去5年以内に、病気やけがで、手術をうけたまたは継続して7日以上の入院をしたことがありますか？
                   </p>
-                  <input class="radioBtn" type="radio" name="question3" value="はい" v-model="$store.state.question3"
+                  <input class="radioBtn" type="radio" name="question3" value="はい" v-model="interviewQuestion3" v-on:click="question3"
                   />はい
-                  <input class="radioBtn" type="radio" name="question3" value="いいえ" v-model="$store.state.question3"
+                  <input class="radioBtn" type="radio" name="question3" value="いいえ" v-model="interviewQuestion3" v-on:click="question3"
                   />いいえ
                 </div>
               </transition>
@@ -61,9 +61,13 @@ export default {
     return {
       show2: false,
       show3: false,
+      interviewQuestion1:'',
+      interviewQuestion2:'',
+      interviewQuestion3:'',
     };
   },
-  computed: {},
+  computed: {
+  },
   methods: {
     nextBtn() {
       this.$router.push('/consultation');
@@ -71,11 +75,17 @@ export default {
     previousBtn() {
       this.$router.push('/');
     },
-    question1() {
+    question1(event) {
+      //引数にイベントを設定してtargetでインプットタグの内容が取得される
       this.show2 = true;
+      this.$store.commit("question1", {question1:event.target.value});
     },
-    question2() {
+    question2(event) {
       this.show3 = true;
+      this.$store.commit("question2",{question2:event.target.value});
+    },
+    question3(event) {
+      this.$store.commit("question3",{question3:event.target.value});
     },
   },
 };
